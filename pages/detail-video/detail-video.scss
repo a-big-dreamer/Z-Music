@@ -1,0 +1,26 @@
+/* pages/detail-video/detail-video.wxss */
+.video {
+  width: 100%;
+}
+
+.mv-info-container {
+  padding: 30rpx;
+  height: calc(100vh - 225px - 70rpx);
+  .mv-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15rpx;
+    margin-bottom: 60rpx;
+    .mv-name {
+      font-weight: 700;
+    }
+    .mv-artis-name,
+    .mv-other-info {
+      font-size: 25rpx;
+      color: rgba(0, 0, 0, 0.7);
+    }
+  }
+  .title {
+    margin-bottom: 20rpx;
+  }
+}

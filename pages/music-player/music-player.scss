@@ -1,0 +1,119 @@
+/* pages/music-player/music-player.wxss */
+
+.bg-image,
+.bg-cover {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.bg-cover {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(16rpx);
+}
+
+.tabs {
+  display: flex;
+  font-size: 30rpx;
+  color: #aaa;
+  .divider {
+    margin: 0 20rpx;
+    font-size: 28rpx;
+  }
+
+  .active {
+    color: #fff;
+  }
+}
+
+.music {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 40rpx 40rpx;
+  font-size: 28rpx;
+  color: #fff;
+  .album {
+    box-sizing: border-box;
+    .image {
+      width: 100%;
+      border-radius: 12rpx;
+    }
+  }
+
+  .bottom {
+    margin: 60rpx 0;
+    .info {
+      .name {
+        font-size: 48rpx;
+        font-weight: 700;
+      }
+      .singer {
+        margin-top: 10rpx;
+      }
+    }
+    .lyric {
+      margin: 32rpx 0;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      height: 1rem;
+    }
+
+    .progress {
+      margin: 18rpx 8rpx;
+      .slider {
+        margin: 16rpx 10rpx 16rpx 0;
+      }
+      .time {
+        display: flex;
+        justify-content: space-between;
+        font-size: 24rpx;
+      }
+    }
+  }
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .btn {
+      width: 60rpx;
+      height: 60rpx;
+    }
+    .mode {
+      width: 80rpx;
+      height: 80rpx;
+    }
+    .play {
+      width: 90rpx;
+      height: 90rpx;
+    }
+  }
+}
+
+.lyric-list {
+  color: #aaa;
+  font-size: 28rpx;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 40rpx 20%;
+  .item {
+    &:first-of-type {
+      margin-top: -200rpx;
+    }
+    .item-text {
+      padding: 15rpx 0 20rpx 0;
+    }
+
+    .active {
+      color: #c70c0c;
+      font-size: 30rpx;
+    }
+  }
+}

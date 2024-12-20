@@ -1,0 +1,46 @@
+/* components/ranking-item/ranking-item.wxss */
+.ranking-item {
+  display: flex;
+  background-color: #dcdadc;
+  border-radius: 15rpx;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+  .content {
+    flex: 1;
+    padding: 25rpx 10rpx 25rpx 30rpx;
+    .name {
+      font-size: 32rpx;
+      box-sizing: border-box;
+    }
+    .list {
+      margin-top: 15rpx;
+      font-size: 28rpx;
+      color: rgba(0, 0, 0, 0.8);
+      .item {
+        margin-bottom: 8rpx;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+      }
+    }
+  }
+  .album {
+    position: relative;
+    width: 35%;
+    .image {
+      display: block;
+      width: 100%;
+    }
+    .count {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      font-size: 25rpx;
+      color: #fff;
+      padding: 8rpx 12rpx;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 15rpx;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<!--components/nav-bar/nav-bar.wxml-->
+<view class="nav-bar">
+  <view class="status" style="height: {{statusHeight}}px;"></view>
+  <view class="nav" style="height: {{navBarHeight}}px;">
+    <view class="left">
+      <view class="slot">
+        <slot name="left"></slot>
+      </view>
+      <navigator open-type="navigateBack" delta="1" class="default">
+        <image src="/assets/images/icons/arrow_left.png" mode="" class="icon" />
+      </navigator>
+    </view>
+    <view class="center">
+      <view class="slot">
+        <slot name="center"></slot>
+      </view>
+      <view class="default">{{title}}</view>
+    </view>
+    <view class="right"></view>
+  </view>
+</view>

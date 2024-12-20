@@ -1,0 +1,54 @@
+<!--pages/music-player/music-player.wxml-->
+<wxs src="/utils/format.wxs" module="format" />
+
+<image src="{{currentSong.al.picUrl}}" mode="aspectFill" class="bg-image" />
+<view class="bg-cover"></view>
+<view class="lyric-mask"></view>
+
+<nav-bar>
+  <view class="tabs" slot="center">
+    <block wx:for="{{pageTitles}}" wx:key="*this">
+      <view class="item {{currentPage ===  index ? 'active' : '' }}" bind:tap="onNavTabItemTap" data-index="{{index}}">{{item}}</view>
+      <view class="divider" wx:if="{{index !== pageTitles.length - 1}}">|</view>
+    </block>
+  </view>
+</nav-bar>
+
+<swiper style="height: {{contentHeight}}px;" bindchange="onSwiperChange" current="{{currentPage}}">
+  <swiper-item class="music">
+    <view class="album">
+      <image src="{{currentSong.al.picUrl}}" mode="widthFix" class="image" />
+    </view>
+    <view class="bottom">
+      <view class="info">
+        <view class="name">{{currentSong.name}}</view>
+        <view class="singer">{{currentSong.ar[0].name}}</view>
+      </view>
+      <view class="lyric">{{currentLyricText}}</view>
+      <view class="progress">
+        <slider bindchange="onSliderChange" bindchanging="onSliderChanging" block-size="12" class="slider" value="{{sliderValue}}" activeColor="#c70c0c" />
+        <view class="time">
+          <view class="current">{{format.formatTime(currentTime)}}</view>
+          <view class="duration">{{format.formatTime(durationTime)}}</view>
+        </view>
+      </view>
+      <view class="controls">
+        <image src="/assets/images/player/play_{{playModeName}}.png" class="btn mode" bind:tap="onModeBtnTap" />
+        <image src="/assets/images/player/play_prev.png" class="btn prev" bind:tap="onPrevBtnTap" />
+        <image bind:tap="onPlayOrPause" src="/assets/images/player/play_{{isPlaying ? 'pause':'resume'}}.png" class="btn play" />
+        <image src="/assets/images/player/play_next.png" class="btn next" bind:tap="onNextBtnTap" />
+        <image src="/assets/images/player/play_music.png" class="btn list" />
+      </view>
+    </view>
+
+  </swiper-item>
+  <swiper-item>
+    <scroll-view class="lyric-list" scroll-y enhanced show-scrollbar="{{false}}" scroll-top="{{lyricScrollTop}}" scroll-with-animation>
+      <block wx:for="{{lyricInfos}}" wx:key="time">
+        <view class="item" style="padding-top: {{index === 0 ? (contentHeight / 2) : 0}}px; padding-bottom: {{index === lyricInfos.length - 1 ? (contentHeight / 2) : 0}}px">
+          <view class="item-text {{currentLyricIndex === index ? 'active' : ''}}">{{item.text}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+</swiper>

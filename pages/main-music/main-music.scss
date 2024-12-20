@@ -1,0 +1,19 @@
+/* pages/main-music/main-music.scss */
+page {
+  --search-padding: 10px 0;
+  --search-background-color: #fff;
+
+  box-sizing: border-box;
+  padding: 0 24rpx;
+  background-color: #fafafa;
+}
+
+.banner {
+  border-radius: 12rpx;
+  overflow: hidden;
+  .item {
+    .banner-image {
+      width: 100%;
+    }
+  }
+}

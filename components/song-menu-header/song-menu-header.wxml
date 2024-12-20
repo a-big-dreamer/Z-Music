@@ -1,0 +1,27 @@
+<!--components/song-menu-header/song-menu-header.wxml-->
+<view class="song-menu-header">
+  <image src="{{menuInfo.coverImgUrl}}" mode="aspectFill" class="bg-img" />
+  <view class="menu-info-container">
+    <view class="menu-msg">
+      <image src="{{menuInfo.coverImgUrl}}" mode="aspectFill" class="menu-img" />
+      <view class="content">
+        <view class="menu-name">{{menuInfo.name}}</view>
+        <view class="menu-belongs">
+          <image src="{{menuInfo.creator.avatarUrl}}" mode="" class="belongs-img" />
+          <view class="creator-nickname">{{menuInfo.creator.nickname}}</view>
+        </view>
+        <view class="menu-des">{{menuInfo.description}}</view>
+      </view>
+    </view>
+    <view class="operate">
+      <view class="praise item">
+        <image class="icon" src="/assets/images/icons/favor_icon.png" mode="" />
+        {{menuInfo.subscribedCount}}
+      </view>
+      <view class="share item">
+        <image class="icon" src="/assets/images/icons/share_icon.png" mode="" />
+        分享
+      </view>
+    </view>
+  </view>
+</view>

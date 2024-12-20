@@ -1,0 +1,12 @@
+<!--components/related-video-item/related-video-item.wxml-->
+<wxs src="/utils/format.wxs" module="format"/>
+<view  bind:tap="onItemTap" class="related-video-item">
+  <view class="image-info">
+    <image class="image" src="{{relatedVideoData.cover}}" mode="widthFix" />
+    <view class="play-count">{{format.formatCount(relatedVideoData.playCount)}}</view>
+  </view>
+  <view class="item-info">
+    <view class="item-name">{{relatedVideoData.name}}</view>
+    <view class="item-artist-name">{{relatedVideoData.artistName}}</view>
+  </view>
+</view>

@@ -1,0 +1,84 @@
+/* components/song-menu-header/song-menu-header.wxss */
+.song-menu-header {
+  position: relative;
+  width: 100%;
+  height: 480rpx;
+  margin-bottom: 30rpx;
+  overflow: hidden;
+  .bg-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+  }
+  .menu-info-container {
+    padding: 70rpx 40rpx 0 60rpx;
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(5px);
+    z-index: 2;
+    .menu-msg {
+      display: flex;
+      .menu-img {
+        width: 250rpx;
+        height: 250rpx;
+        border-radius: 16rpx;
+        margin-right: 50rpx;
+        box-shadow: 2rpx 2rpx 5rpx 5rpx rgba(0, 0, 0, 0.1);
+      }
+      .content {
+        width: 40%;
+        flex: 1;
+        color: rgba(255, 255, 255, 0.9);
+        .menu-name {
+          font-size: 34rpx;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+        }
+        .menu-belongs {
+          display: flex;
+          align-items: center;
+          gap: 20rpx;
+          margin: 34rpx 0;
+          .belongs-img {
+
+            width: 60rpx;
+            height: 60rpx;
+            border-radius: 50%;
+          }
+          .creator-nickname {
+            flex: 1 1 0;
+            font-size: 30rpx;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+        .menu-des {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-size: 28rpx;
+        }
+      }
+    }
+    .operate {
+      display: flex;
+      justify-content: space-between;
+      padding: 70rpx 80rpx;
+      color: #fff;
+      font-size: 30rpx;
+      .item {
+        display: flex;
+        align-items: center;
+      }
+      .icon {
+        width: 40rpx;
+        height: 40rpx;
+        margin-right: 15rpx;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+/* pages/detail-menu/detail-menu.wxss */
+page {
+  box-sizing: border-box;
+  padding: 10rpx 24rpx;
+}
+.menu-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .iten {
+    width: 49%;
+    margin-bottom: 24rpx;
+  }
+}

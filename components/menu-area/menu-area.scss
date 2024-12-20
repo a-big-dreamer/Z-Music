@@ -1,0 +1,18 @@
+/* components/menu-area/menu-area.wxss */
+
+.menu-list {
+  .list {
+    margin-left: -24rpx;
+    white-space: nowrap;
+    .item {
+      vertical-align: top;
+      display: inline-block;
+      width: 220rpx;
+      margin-left: 24rpx;
+      white-space: normal;
+      &:last-child {
+        margin-right: 24rpx;
+      }
+    }
+  }
+}
