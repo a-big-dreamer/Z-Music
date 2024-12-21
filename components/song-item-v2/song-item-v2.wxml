@@ -5,7 +5,7 @@
     <view>{{itemData.name}}</view>
     <view class="source">
       <image src="/assets/images/icons/sq_icon.png" mode="widthFix" class="icon" />
-      <text class="ar">{{itemData.ar[0].name}}</text>
+      <text class="ar">{{itemData.ar[0] ? itemData.ar[0].name: itemData.artists[0].name}}</text>
     </view>
   </view>
 </view>

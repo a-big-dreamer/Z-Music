@@ -17,3 +17,71 @@ page {
     }
   }
 }
+
+.play-bar-placeholder {
+  height: 86rpx;
+}
+
+.player-bar {
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  background-color: #fff;
+  box-shadow: 0 -1px 5px 0 rgba(0, 0, 0, 0.1);
+  .left {
+    .album {
+      position: relative;
+      top: -16rpx;
+      width: 76rpx;
+      height: 76rpx;
+      border-radius: 50%;
+      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+  .center {
+    flex: 1 1 0;
+    // width: 66%;
+    margin: 0 20rpx;
+    .name {
+      font-size: 26rpx;
+    }
+    .lyric-text {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+      margin-top: 10rpx;
+      font-size: 20rpx;
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+  .right {
+    display: flex;
+    align-items: center;
+    .play {
+      margin-right: 10rpx;
+      height: 40rpx;
+      width: 40rpx;
+    }
+    .play-list {
+      width: 48rpx;
+      height: 48rpx;
+    }
+  }
+}
+
+@keyframes rotateAnim {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.album-anim {
+  animation: rotateAnim 10s linear infinite;
+}

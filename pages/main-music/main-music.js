@@ -19,16 +19,23 @@ Page({
     recommendMenuList: [],
     rankingInfos: {},
     isRankingData: false,
+
+    stateKeys: ["currentSong", "isPlaying", "currentLyricText"],
+    currentSong: {},
+    isPlaying: false,
+    currentLyricText: "",
   },
   onLoad() {
     this.fetchMusicBanner();
+    this.fetchSongMenuList();
+
     recommendStore.onState("recommendSongInfo", this.handleRecommendSongs);
     recommendStore.dispatch("fetchRecommandSongsAction");
     for (const key in rankingsMap) {
       rankingStore.onState(key, this.getRankingHandler(key));
     }
     rankingStore.dispatch("fetchRankingDataAction");
-    this.fetchSongMenuList();
+    playerStore.onStates(this.data.stateKeys, this.handlePlayInfos);
   },
 
   async fetchMusicBanner() {
@@ -64,18 +71,6 @@ Page({
     const recommendSongs = value.dailySongs.slice(0, 6);
     this.setData({ recommendSongs });
   },
-  // handleNewRanking(value) {
-  //   const newRankingInfos = { ...this.data.rankingInfos, newRanking: value };
-  //   this.setData({ rankingInfos: newRankingInfos });
-  // },
-  // handleOriginRanking(value) {
-  //   const newRankingInfos = { ...this.data.rankingInfos, originRanking: value };
-  //   this.setData({ rankingInfos: newRankingInfos });
-  // },
-  // handleUpRanking(value) {
-  //   const newRankingInfos = { ...this.data.rankingInfos, upRanking: value };
-  //   this.setData({ rankingInfos: newRankingInfos });
-  // },
 
   getRankingHandler(ranking) {
     return (value) => {
@@ -95,13 +90,33 @@ Page({
     playerStore.setState("playSongList", this.data.recommendSongs);
     playerStore.setState("playSongIndex", index);
   },
+  onPlayOrPauseBtnTap() {
+    playerStore.dispatch("changeMusicStatusAction");
+  },
+  onPlayBarTap() {
+    wx.navigateTo({
+      url: "/pages/music-player/music-player",
+    });
+  },
+  handlePlayInfos({ currentSong, isPlaying,currentLyricText }) {
+    if (currentSong) {
+      this.setData({ currentSong });
+    }
+    if (isPlaying !== undefined) {
+      this.setData({ isPlaying });
+    }
+    if (currentLyricText) {
+      this.setData({ currentLyricText });
+    }
+  },
   onUnload() {
     recommendStore.offState("recommendSongInfo", this.handleRecommendSongs);
-    // rankingStore.offState("newRanking", this.handleNewRanking);
-    // rankingStore.offState("originRanking", this.handleOriginRanking);
-    // rankingStore.offState("upRanking", this.handleUpRanking);
     for (const key in rankingsMap) {
       rankingStore.offState(key, this.getRankingHandler(key));
     }
+    playerStore.offStates(
+      this.data.stateKeys,
+      this.handlePlayInfos
+    );
   },
 });

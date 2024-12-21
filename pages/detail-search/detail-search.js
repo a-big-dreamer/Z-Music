@@ -1,66 +1,79 @@
 // pages/detail-search/detail-search.js
+import {
+  getHotSearch,
+  getSearchSuggest,
+  getDefaultKeywords,
+  getSearchResult,
+} from "../../services/search";
+import { throttle } from "underscore";
+import playerStore from "../../store/playerStore";
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    hotSearchList: [],
+    suggestList: [],
+    searchResult: [],
+    value: "",
+    placeholder: "",
+    isSearching: false,
+  },
+  onLoad() {
+    this.fetchHotSearch();
+    this.fetchDefaultKeywords();
+  },
+  async fetchDefaultKeywords() {
+    const data = await getDefaultKeywords();
+    const placeholder = data.data.realkeyword;
+    this.setData({ placeholder });
+  },
+  async fetchHotSearch() {
+    const data = await getHotSearch();
+    const hotSearchList = data.result.hots;
+    this.setData({ hotSearchList });
+  },
+  async fetchSearchSuggest(keywords) {
+    const data = await getSearchSuggest(keywords);
+    const suggestList = data.result.allMatch;
+    suggestList && this.setData({ suggestList });
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  async fetchSearchResult(keywords) {
+    const data = await getSearchResult(keywords);
+    const searchResult = data.result.songs;
+    this.setData({ searchResult });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  onSearch: throttle(
+    function (event) {
+      const keywords = event.detail;
+      this.setData({ value: keywords, isSearching: true });
+      if (keywords == "") {
+        this.onCancleTap();
+        return;
+      }
+      this.fetchSearchSuggest(keywords);
+    },
+    300,
+    {
+      leading: true,
+      trailing: true,
+    }
+  ),
+  onClear() {
+    this.onCancleTap();
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  onItemTap(event) {
+    const keywords = event.currentTarget.dataset.text;
+    this.setData({ value: keywords, isSearching: false });
+    this.fetchSearchResult(keywords);
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  onMusicPlayTap() {
+    playerStore.setState("playSongList", this.data.searchResult);
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
+  onCancleTap() {
+    this.setData({
+      suggestList: [],
+      searchResult: [],
+      value: "",
+    });
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
-})
+});

@@ -1,2 +1,30 @@
 <!--pages/detail-search/detail-search.wxml-->
-<text>pages/detail-search/detail-search.wxml</text>
+<view class="detail-search-container">
+  <view class="search-box">
+    <van-search placeholder="{{placeholder}}" value="{{value}}" class="search" background="#e8e6e8" shape="round" bind:change="onSearch" bind:clear="onClear"></van-search>
+    <view class="cancle" hidden="{{!value}}" bind:tap="onCancleTap">取消</view>
+  </view>
+  <view class="hot-search" wx:if="{{!value}}">
+    <area-header has-more="{{false}}"></area-header>
+    <view class="hot-search-list">
+      <block wx:for="{{hotSearchList}}" wx:key="first">
+        <view class="item" bind:tap="onItemTap" data-text="{{item.first}}">{{item.first}}</view>
+      </block>
+    </view>
+  </view>
+  <view class="suggest-list" wx:elif="{{isSearching}}">
+    <view class="search-content">搜索"{{value}}"</view>
+    <block wx:for="{{suggestList}}" wx:key="keyword">
+      <view class="item" bind:tap="onItemTap" data-text="{{item.keyword}}">
+        <image src="/assets/images/icons/search_icon.png" class="icon" />
+        <view class="name">{{item.keyword}}</view>
+      </view>
+    </block>
+  </view>
+  <view class="search-result" wx:else>
+    <view class="result-title">最佳匹配</view>
+    <block wx:for="{{searchResult}}" wx:key="id">
+      <song-item-v2 item-data="{{item}}" index="{{index + 1}}" bind:tap="onMusicPlayTap"></song-item-v2>
+    </block>
+  </view>
+</view>

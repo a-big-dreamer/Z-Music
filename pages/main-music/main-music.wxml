@@ -1,5 +1,5 @@
 <!--pages/main-music/main-music.wxml-->
-<van-search value="{{ searchValue }}" bind:click-input="onSearchClick" shape="round" background="#fafafa" placeholder="请输入搜索关键词" />
+<van-search readonly value="{{ searchValue }}" bind:click-input="onSearchClick" shape="round" background="#fafafa" placeholder="请输入搜索关键词" />
 
 <swiper style="height: {{bannerHeight}}px;" class="banner" circular indicator-dots>
   <block wx:for="{{banners}}" wx:key="targetId">
@@ -27,5 +27,20 @@
     <block wx:for="{{rankingInfos}}" wx:key="id">
       <ranking-item key="{{index}}" item-data="{{item}}"></ranking-item>
     </block>
+  </view>
+</view>
+
+<view class="play-bar-placeholder" wx:if="{{currentSong.name || isPlaying}}"></view>
+<view class="player-bar" wx:if="{{currentSong.name || isPlaying}}" bind:tap="onPlayBarTap">
+  <view class="left">
+    <image src="{{currentSong.al.picUrl}}" class="album album-anim" style="animation-play-state: {{ isPlaying?'running':'paused'}};" />
+  </view>
+  <view class="center">
+    <view class="name">{{currentSong.name}}</view>
+    <view class="lyric-text">{{currentLyricText}}</view>
+  </view>
+  <view class="right">
+    <image class="play" src="/assets/images/music/{{isPlaying ? 'pause' : 'play'}}_icon.png" catch:tap="onPlayOrPauseBtnTap" />
+    <image class="play-list" src="/assets/images/music/playlist_icon.png" />
   </view>
 </view>
