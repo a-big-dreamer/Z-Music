@@ -22,7 +22,10 @@
     <view class="bottom">
       <view class="info">
         <view class="name">{{currentSong.name}}</view>
-        <view class="singer">{{currentSong.ar[0].name}}</view>
+        <view class="info-bottom">
+          <image src="/assets/images/icons/VIP.png" mode="widthFix" class="vip-icon" hidden="{{currentSong.fee !== 1}}" />
+          <view class="singer">{{format.formatArtistsName(currentSong.ar)}}</view>
+        </view>
       </view>
       <view class="lyric">{{currentLyricText}}</view>
       <view class="progress">
@@ -37,7 +40,9 @@
         <image src="/assets/images/player/play_prev.png" class="btn prev" bind:tap="onPrevBtnTap" />
         <image bind:tap="onPlayOrPause" src="/assets/images/player/play_{{isPlaying ? 'pause':'resume'}}.png" class="btn play" />
         <image src="/assets/images/player/play_next.png" class="btn next" bind:tap="onNextBtnTap" />
-        <image src="/assets/images/player/play_music.png" class="btn list" />
+        <song-menu-popup>
+          <image src="/assets/images/player/play_music.png" class="btn list" />
+        </song-menu-popup>
       </view>
     </view>
 

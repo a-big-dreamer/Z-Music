@@ -2,20 +2,51 @@
 .item {
   display: flex;
   margin-bottom: 50rpx;
+  color: #000;
+  .left {
+    margin-right: 25rpx;
+    .audio-beat {
+      margin: 8rpx 0 0 10rpx;
+    }
+  }
+
   .info {
-    margin-left: 25rpx;
+    .info-top {
+      display: flex;
+      align-items: center;
+      .vip-icon {
+        margin-left: 10rpx;
+        width: 40rpx;
+        height: 20rpx;
+      }
+    }
     .source {
       margin-top: 10rpx;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       .icon {
+        margin-top: 8rpx;
         width: 45rpx;
         margin-right: 10rpx;
       }
       .ar {
+        flex: 1 1 0;
         font-size: 28rpx;
         color: rgba(0, 0, 0, 0.7);
       }
     }
+  }
+}
+
+.active {
+  color: #c70c0c;
+}
+
+@keyframes beat {
+  from {
+    transform: scaleY(0.1);
+  }
+  to {
+    transform: scaleY(1);
   }
 }

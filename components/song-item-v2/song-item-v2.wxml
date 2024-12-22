@@ -1,11 +1,22 @@
 <!--components/song-item-v2/song-item-v2.wxml-->
-<view class="item" bind:tap="onSongItemTap">
-  <view class="index">{{index}}</view>
+<wxs src="/utils/format.wxs" module="format" />
+
+<view class="item {{id === itemData.id ? 'active' : ''}}" bind:tap="onSongItemTap">
+  <view class="left">
+    <view class="audio-beat" wx:if="{{id === itemData.id}}">
+      <audio-beat></audio-beat>
+    </view>
+    <view class="index" style="opacity: {{id === itemData.id ? 0 : 1}};">{{index}}</view>
+  </view>
   <view class="info">
-    <view>{{itemData.name}}</view>
+    <view class="info-top">
+      <view class="view">{{itemData.name}}</view>
+      <image class="vip-icon" hidden="{{itemData.fee !== 1}}" src="/assets/images/icons/VIP.png" mode="widthFix" />
+    </view>
     <view class="source">
       <image src="/assets/images/icons/sq_icon.png" mode="widthFix" class="icon" />
-      <text class="ar">{{itemData.ar[0] ? itemData.ar[0].name: itemData.artists[0].name}}</text>
+      <!-- itemData.ar[0] ? itemData.ar[0].name: itemData.artists[0].name -->
+      <text class="ar">{{format.formatArtistsName(itemData.ar ? itemData.ar: itemData.artists)}}</text>
     </view>
   </view>
 </view>

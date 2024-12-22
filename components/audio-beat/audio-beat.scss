@@ -1,0 +1,24 @@
+/* components/audio-beat/audio-beat.wxss */
+.audio-beat {
+  box-sizing: border-box;
+  position: relative;
+  // left: 10rpx;
+  // top: 8rpx;
+  .bar {
+    position: absolute;
+    width: 6rpx;
+    height: 26rpx;
+    border-radius: 10rpx;
+    background-color: #c70c0c;
+    transform-origin: bottom center;
+    animation: beat 0.5s ease-out alternate infinite;
+    &:first-of-type {
+      left: -10rpx;
+      animation-delay: 0.25s;
+    }
+    &:last-of-type {
+      left: 10rpx;
+      animation-delay: 0.1s;
+    }
+  }
+}

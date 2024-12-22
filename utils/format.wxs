@@ -19,7 +19,19 @@ function padTime(time) {
   var time = time + "";
   return ("00" + time).slice(time.length);
 }
+
+function formatArtistsName(artists) {
+  if (artists) {
+    return artists
+      .map(function (item) {
+        return item.name;
+      })
+      .join("/");
+  }
+}
+
 module.exports = {
   formatCount: formatCount,
   formatTime: formatTime,
+  formatArtistsName: formatArtistsName,
 };

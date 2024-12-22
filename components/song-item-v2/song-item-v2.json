@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "audio-beat": "/components/audio-beat/audio-beat"
+  }
 }

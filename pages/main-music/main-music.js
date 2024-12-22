@@ -98,7 +98,7 @@ Page({
       url: "/pages/music-player/music-player",
     });
   },
-  handlePlayInfos({ currentSong, isPlaying,currentLyricText }) {
+  handlePlayInfos({ currentSong, isPlaying, currentLyricText }) {
     if (currentSong) {
       this.setData({ currentSong });
     }
@@ -114,9 +114,6 @@ Page({
     for (const key in rankingsMap) {
       rankingStore.offState(key, this.getRankingHandler(key));
     }
-    playerStore.offStates(
-      this.data.stateKeys,
-      this.handlePlayInfos
-    );
+    playerStore.offStates(this.data.stateKeys, this.handlePlayInfos);
   },
 });

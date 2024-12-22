@@ -9,6 +9,7 @@
     "pages/music-player/music-player"
   ],
   "tabBar": {
+    "selectedColor": "#c70c0c",
     "list": [
       {
         "pagePath": "pages/main-music/main-music",

@@ -31,16 +31,18 @@
 </view>
 
 <view class="play-bar-placeholder" wx:if="{{currentSong.name || isPlaying}}"></view>
-<view class="player-bar" wx:if="{{currentSong.name || isPlaying}}" bind:tap="onPlayBarTap">
-  <view class="left">
+<view class="player-bar" wx:if="{{currentSong.name || isPlaying}}" >
+  <view class="left" bind:tap="onPlayBarTap">
     <image src="{{currentSong.al.picUrl}}" class="album album-anim" style="animation-play-state: {{ isPlaying?'running':'paused'}};" />
   </view>
-  <view class="center">
+  <view class="center" bind:tap="onPlayBarTap">
     <view class="name">{{currentSong.name}}</view>
     <view class="lyric-text">{{currentLyricText}}</view>
   </view>
   <view class="right">
     <image class="play" src="/assets/images/music/{{isPlaying ? 'pause' : 'play'}}_icon.png" catch:tap="onPlayOrPauseBtnTap" />
-    <image class="play-list" src="/assets/images/music/playlist_icon.png" />
+    <song-menu-popup>
+      <image class="play-list" src="/assets/images/music/playlist_icon.png" />
+    </song-menu-popup>
   </view>
 </view>

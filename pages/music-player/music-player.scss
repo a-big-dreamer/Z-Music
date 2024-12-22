@@ -47,13 +47,22 @@
   .bottom {
     margin: 60rpx 0;
     .info {
+   
       .name {
         font-size: 48rpx;
         font-weight: 700;
       }
-      .singer {
+      .info-bottom {
         margin-top: 10rpx;
+        display: flex;
+        align-items: center;
+       .vip-icon {
+         width: 48rpx;
+         height: 20rpx;
+         margin-right: 10rpx;
+       }
       }
+     
     }
     .lyric {
       margin: 32rpx 0;
@@ -113,7 +122,6 @@
 
     .active {
       color: #c70c0c;
-      font-size: 30rpx;
     }
   }
 }

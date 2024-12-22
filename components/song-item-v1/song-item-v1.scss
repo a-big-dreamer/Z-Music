@@ -11,9 +11,21 @@
   .content {
     margin-left: 16rpx;
     flex: 1;
-    .name {
-      font-size: 30rpx;
-      color: #555;
+    .content-top {
+      display: flex;
+      align-items: center;
+      .name {
+        font-size: 30rpx;
+        color: #555;
+      }
+      .active {
+        color: #c70c0c;
+      }
+      .vip-icon {
+        margin-left: 10rpx;
+        width: 40rpx;
+        height: 20rpx;
+      }
     }
     .source {
       margin-top: 16rpx;

@@ -66,13 +66,14 @@ page {
     display: flex;
     align-items: center;
     .play {
-      margin-right: 10rpx;
+      margin-right: 20rpx;
       height: 40rpx;
       width: 40rpx;
     }
     .play-list {
-      width: 48rpx;
-      height: 48rpx;
+      vertical-align: middle;
+      width: 38rpx;
+      height: 38rpx;
     }
   }
 }

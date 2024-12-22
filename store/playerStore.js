@@ -82,7 +82,7 @@ const playerStore = new HYEventStore({
 
         audioContext.onEnded(() => {
           if (audioContext.loop) return;
-          this.dispatch('playNewMusicAction');
+          this.dispatch("playNewMusicAction");
         });
       }
     },

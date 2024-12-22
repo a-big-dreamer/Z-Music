@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "nav-bar": "/components/nav-bar/nav-bar"
+    "nav-bar": "/components/nav-bar/nav-bar",
+    "song-menu-popup": "/components/song-menu-popup/song-menu-popup"
   },
   "navigationStyle": "custom",
   "navigationBarTextStyle": "white"

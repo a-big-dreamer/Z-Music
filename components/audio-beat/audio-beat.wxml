@@ -1,0 +1,6 @@
+<!--components/audio-beat/audio-beat.wxml-->
+<view class="audio-beat">
+  <block wx:for="{{3}}" wx:key="*this">
+    <view class="bar" style="animation-play-state: {{isPlaying? 'running':'paused'}};"></view>
+  </block>
+</view>
