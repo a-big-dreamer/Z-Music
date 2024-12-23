@@ -1,6 +1,6 @@
 // pages/music-player/music-player.js
 import { throttle } from "underscore";
-import playerStore, { audioContext } from "../../store/playerStore";
+import playerStore, { audioContext } from "../../../store/playerStore";
 
 const app = getApp();
 const query = wx.createSelectorQuery();

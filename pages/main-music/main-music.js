@@ -95,7 +95,7 @@ Page({
   },
   onPlayBarTap() {
     wx.navigateTo({
-      url: "/pages/music-player/music-player",
+      url: "/packagePlayer/pages/music-player/music-player",
     });
   },
   handlePlayInfos({ currentSong, isPlaying, currentLyricText }) {

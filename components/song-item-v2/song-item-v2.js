@@ -42,7 +42,7 @@ Component({
         playerStore.dispatch("playMusicWithSongIdAction", id);
       } else {
         wx.navigateTo({
-          url: `/pages/music-player/music-player?id=${id}`,
+          url: `/packagePlayer/pages/music-player/music-player?id=${id}`,
         });
       }
     },

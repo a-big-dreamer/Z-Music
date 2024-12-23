@@ -10,7 +10,7 @@ Component({
     onItemTap() {
       const { id } = this.properties.itemData;
       wx.navigateTo({
-        url: `/pages/detail-video/detail-video?id=${id}`,
+        url: `/packageVideo/pages/detail-video/detail-video?id=${id}`,
       });
     },
   },

@@ -13,7 +13,7 @@ Component({
     onItemTap() {
       const { id } = this.properties.relatedVideoData;
       wx.navigateTo({
-        url: `/pages/detail-video/detail-video?id=${id}`,
+        url: `/packageVideo/pages/detail-video/detail-video?id=${id}`,
       });
     },
   },

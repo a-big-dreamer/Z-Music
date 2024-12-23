@@ -36,12 +36,12 @@
         </view>
       </view>
       <view class="controls">
-        <image src="/assets/images/player/play_{{playModeName}}.png" class="btn mode" bind:tap="onModeBtnTap" />
-        <image src="/assets/images/player/play_prev.png" class="btn prev" bind:tap="onPrevBtnTap" />
-        <image bind:tap="onPlayOrPause" src="/assets/images/player/play_{{isPlaying ? 'pause':'resume'}}.png" class="btn play" />
-        <image src="/assets/images/player/play_next.png" class="btn next" bind:tap="onNextBtnTap" />
+        <image src="/packagePlayer/assets/images/player/play_{{playModeName}}.png" class="btn mode" bind:tap="onModeBtnTap" />
+        <image src="/packagePlayer/assets/images/player/play_prev.png" class="btn prev" bind:tap="onPrevBtnTap" />
+        <image bind:tap="onPlayOrPause" src="/packagePlayer/assets/images/player/play_{{isPlaying ? 'pause':'resume'}}.png" class="btn play" />
+        <image src="/packagePlayer/assets/images/player/play_next.png" class="btn next" bind:tap="onNextBtnTap" />
         <song-menu-popup>
-          <image src="/assets/images/player/play_music.png" class="btn list" />
+          <image src="/packagePlayer/assets/images/player/play_music.png" class="btn list" />
         </song-menu-popup>
       </view>
     </view>
