@@ -23,6 +23,10 @@ Component({
         }
       };
     },
+    onSongItemTap(event) {
+      const index = event.currentTarget.dataset.index;
+      playerStore.setState("playSongIndex", index);
+    },
     changePopupStatus() {
       this.setData({
         show: true,

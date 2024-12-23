@@ -14,8 +14,7 @@
       <image class="vip-icon" hidden="{{itemData.fee !== 1}}" src="/assets/images/icons/VIP.png" mode="widthFix" />
     </view>
     <view class="source">
-      <image src="/assets/images/icons/sq_icon.png" mode="widthFix" class="icon" />
-      <!-- itemData.ar[0] ? itemData.ar[0].name: itemData.artists[0].name -->
+      <image src="/assets/images/icons/sq_icon.png"  class="icon" />
       <text class="ar">{{format.formatArtistsName(itemData.ar ? itemData.ar: itemData.artists)}}</text>
     </view>
   </view>

@@ -66,8 +66,10 @@ Page({
     this.setData({ value: keywords, isSearching: false });
     this.fetchSearchResult(keywords);
   },
-  onMusicPlayTap() {
+  onMusicPlayTap(event) {
+    const index = event.currentTarget.dataset.index;
     playerStore.setState("playSongList", this.data.searchResult);
+    playerStore.setState("playSongIndex", index);
   },
   onCancleTap() {
     this.setData({

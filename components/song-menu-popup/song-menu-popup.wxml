@@ -2,7 +2,7 @@
 <van-popup round show="{{ show }}" position="bottom" custom-style="height: 50%;" bind:close="onClose">
   <view class="song-list">
     <block wx:for="{{playSongList}}" wx:key="id">
-      <song-item-v2 index="{{index + 1}}" item-data="{{item}}" is-skip></song-item-v2>
+      <song-item-v2 index="{{index + 1}}" item-data="{{item}}" is-skip data-index="{{index}}" bind:tap="onSongItemTap"></song-item-v2>
     </block>
   </view>
 </van-popup>

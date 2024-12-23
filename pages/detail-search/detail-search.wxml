@@ -24,7 +24,7 @@
   <view class="search-result" wx:else>
     <view class="result-title">最佳匹配</view>
     <block wx:for="{{searchResult}}" wx:key="id">
-      <song-item-v2 item-data="{{item}}" index="{{index + 1}}" bind:tap="onMusicPlayTap"></song-item-v2>
+      <song-item-v2 item-data="{{item}}" index="{{index + 1}}" data-index="{{index}}" bind:tap="onMusicPlayTap"></song-item-v2>
     </block>
   </view>
 </view>
